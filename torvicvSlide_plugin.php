@@ -35,9 +35,9 @@ class MySettingsPage
      */
     public function __construct()
     {
+        add_shortcode( 'baztag', array( $this, 'show_slide' ) );
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
-        add_action( 'init', array( $this, 'show_slide'));
     }
 
     /**
@@ -177,7 +177,7 @@ class MySettingsPage
     /** 
      * Print the Section text
      */
-    /*public function print_section_info()
+    public function print_section_info()
     {
         print 'Enter your settings below:';
     }
@@ -262,26 +262,22 @@ class MySettingsPage
                 <button class="w3-button w3-black w3-display-left">&#10094;</button>
                 <button class="w3-button w3-black w3-display-right">&#10095;</button>
                 </div>';
-        $ruta1 = $myField1;
-        $ruta2 = $myField2;
-        $ruta3 = $myField3;
-        $ruta4 = $myField4;
-        $ruta5 = $myField5;
-        $ruta6 = $myField6;
+        $ruta1 = esc_attr( $myField1 );
+        $ruta2 = esc_attr( $myField2 );
+        $ruta3 = esc_attr( $myField3 );
+        $ruta4 = esc_attr( $myField4 );
+        $ruta5 = esc_attr( $myField5 );
+        $ruta6 = esc_attr( $myField6 );
 
         $mostrar = sprintf($formato, $ruta1, $ruta2, $ruta3, $ruta4, $ruta5, $ruta6);
         return $mostrar;
+        
     }
 }
 
 if( is_admin() ){
     $my_settings_page = new MySettingsPage();
+}else{
+    $my_settings_page = new MySettingsPage();
 }
 
-add_shortcode( 'baztag', array( 'MySettingsPage', 'show_slide' ) );
-
-add_shortcode("pdf", "test_process_shortcode");
- 
-function test_process_shortcode(){
-        return "<span style='color:blue;'>Hello world!</span>";
-}
