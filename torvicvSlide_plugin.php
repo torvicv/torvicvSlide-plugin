@@ -271,23 +271,6 @@ class MySettingsPage
 
         $mostrar = sprintf($formato, $ruta1, $ruta2, $ruta3, $ruta4, $ruta5, $ruta6);
         return $mostrar;
-        /*printf(
-            '<input type="url" id="id_number" class="upload_image_input" name="my_option_name[id_number]" value="%s" />'
-                . '<button class="upload_image_button">Select image</button>',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : '');
-        /*'     
-        <div class="w3-content w3-display-container">
-                <img class="mySlides" style="order: 0;" src="'. $this->options['title'].' " />
-<img class="mySlides class2" style="order: 1;" src="'. $this->options['id_number'] .'" />
-<img class="mySlides" style="order: 2;" src=" echo $ruta3; " />
-
-<img class="mySlides" style="order: 3;" src=" echo $ruta4; " />
-
-<img class="mySlides" style="order: 4;" src=" echo $ruta5; " />
-
-<img class="mySlides" style="order: 5;" src=" echo $ruta6; " />
-        </div>
-'*/
     }
 }
 
